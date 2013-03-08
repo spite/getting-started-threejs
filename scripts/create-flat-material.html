@@ -1,0 +1,49 @@
+var flatMaterial = new THREE.MeshPhongMaterial( {
+    color: 0xff8010,
+    shading: THREE.FlatShading,
+    specular: 0xffffff,
+    shininess: 1,
+    ambient: 0xff00ff
+} );
+
+var cube = new THREE.Mesh( 
+    new THREE.CubeGeometry( 1, 1, 1 ),
+    flatMaterial
+);
+cube.scale.set( 20, 20, 20 );
+cube.position.set( 0, 20, 0 );
+cube.castShadow = true;
+cube.receiveShadow = true;
+scene.add( cube );
+
+var sphere = new THREE.Mesh(
+    new THREE.SphereGeometry( .5, 20, 20 ),
+    flatMaterial
+);
+sphere.scale.set( 20, 20, 20 );
+sphere.position.set( 30, 20, 0 );
+sphere.castShadow = true;
+sphere.receiveShadow = true;
+scene.add( sphere );
+
+var cylinder = new THREE.Mesh(
+    new THREE.CylinderGeometry( .5, .5, 1, 20, 20 ),
+    flatMaterial
+);
+cylinder.scale.set( 20, 20, 20 );
+cylinder.position.set( 30, 20, 0 );
+cylinder.castShadow = true;
+cylinder.receiveShadow = true;
+scene.add( cylinder );
+
+var spotLight1 = new THREE.SpotLight( 0x984572, 1 );
+spotLight1.position.set( 100, 200, -200 );
+spotLight1.castShadow = true;
+spotLight1.target.position.set( 0, 0, 0 );
+scene.add( spotLight1 );
+
+var spotLight2 = new THREE.SpotLight( 0x259834, 1 );
+spotLight2.position.set( - 100, 100, -100 );
+spotLight2.target.position.set( 0, 0, 0 );
+spotLight2.castShadow = true;
+scene.add( spotLight2 );

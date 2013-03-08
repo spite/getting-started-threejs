@@ -1,0 +1,25 @@
+var clock = new THREE.Clock();
+
+function render() {
+
+    var ellapsedFactor = clock.getDelta();
+
+    torus.rotation.x += ellapsedFactor * 1;
+    torus.rotation.y += ellapsedFactor * .7;
+    torus.rotation.z += ellapsedFactor * .5;
+
+    torus.position.y = 20 + 20 * Math.sin( .0005 * Date.now() );
+    
+    var s = 10 * ( 1 + .5 * Math.sin( .0001 * Date.now() ) );
+    torus.scale.set( s, s, s );
+    
+    var h = Math.cos( .0001 * Date.now() ), 
+    	s = Math.cos( .00011 * Date.now() ), 
+    	l = .5
+    torus.material.emissive.setHSL( h, s, l );
+
+    renderer.render( scene, camera );
+    
+    requestAnimationFrame( render );
+
+}

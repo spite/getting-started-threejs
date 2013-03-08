@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Starting</title>
+        <style>
+            *{ box-sizing: border-box;}
+            body{ overflow: hidden; }
+            #container{
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 600px;
+                bottom: 0;
+                background-color: black;
+            }
+            #screen{
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 600px;
+                bottom: 0;
+                background-color: #456;
+                white-space: pre;
+                padding: 10px;
+                font-family: monospace;
+                text-shadow: 0 -1px 0 rgba( 0, 0, 0, .6 );
+                font-size: 14px;
+                overflow: auto;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="container" ></div>
+        <div id="screen" ></div>
+
+        <script src="js/three.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+
+
+function init() {
+
+    initRenderer();
+    
+    introScene = setupIntroScene( 0 );
+    firstScene = setupFirstScene( -100 );
+    lightScene = setupLightsScene( -400 );
+    basicMaterialScene = setupBasicMaterialScene( -700 );
+    complexMaterialScene = setupComplexMaterialScene( -1000 );
+    animationScene = setupAnimationScene( -1300 );
+    finalScene = setupFinalScene( -1600 );
+    //modelScene = setupModelScene( -1600 );
+
+    camera.position.x = 0;
+    camera.position.y = 50;
+    camera.position.z = -50;
+    camera.lookAt( camera.target );
+
+    render();
+
+}
+
+window.addEventListener( 'load', init );
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+var bumpMaterial = new THREE.MeshPhongMaterial( {
+    color: 0x189c1c,
+    shading: THREE.SmoothShading,
+    specular: 0xffffff,
+    shininess: 1,
+    ambient: 0xff00ff,
+    bumpScale: -1,
+    specularMap: THREE.ImageUtils.loadTexture( 'Texture seamless mattoni tufo bump simo-3d.jpg' ),
+    bumpMap: THREE.ImageUtils.loadTexture( 'Texture seamless mattoni tufo bump simo-3d.jpg' )
+} );
+
+var normalMaterial = new THREE.MeshPhongMaterial( {
+    color: 0xff8010,
+    shading: THREE.SmoothShading,
+    specular: 0xffffff,
+    shininess: 10,
+    normalScale: new THREE.Vector2( 4,4 ),
+    normalMap: THREE.ImageUtils.loadTexture( '243-normal.jpg' )
+} );
+
+var diffuseNormalMaterial = new THREE.MeshPhongMaterial( {
+    color: 0xffffff,
+    shading: THREE.SmoothShading,
+    specular: 0xffffff,
+    shininess: 10,
+    emissive: 0x200000,
+    map: THREE.ImageUtils.loadTexture( 'lavaTex.png' ),
+    normalScale: new THREE.Vector2( 2,2  ),
+    normalMap: THREE.ImageUtils.loadTexture( 'lavaNormal.png' )
+} );
+
+// add meshes
+
+// add lights

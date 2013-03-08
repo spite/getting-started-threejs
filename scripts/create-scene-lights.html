@@ -1,0 +1,66 @@
+//
+// set the renderer to use shadow mapping
+//
+
+renderer.shadowMapEnabled = true;
+renderer.shadowMapSoft = true;
+renderer.shadowMapType = THREE.PCFShadowMap;
+
+//
+// compose scene as usual
+//
+
+var material = new THREE.MeshPhongMaterial( {
+    color: 0xff8010,
+    specular: 0x808080,
+    shininess: 10
+} );
+
+var cube = new THREE.Mesh( 
+    new THREE.CubeGeometry( 1, 1, 1 ), 
+    material 
+);
+cube.scale.set( 20, 20, 20 );
+cube.position.set( 0, 20, 0 );
+cube.castShadow = true;
+cube.receiveShadow = true;
+scene.add( cube );
+
+var sphere = new THREE.Mesh( 
+   new THREE.SphereGeometry( .5, 20, 20 ),
+   material
+);
+sphere.scale.set( 20, 20, 20 );
+sphere.position.set( 30, 20, 0 );
+sphere.castShadow = true;
+sphere.receiveShadow = true;
+scene.add( sphere );
+
+var cylinder = new THREE.Mesh(
+   new THREE.CylinderGeometry( .5, .5, 1, 20, 20 ),
+   material
+);
+cylinder.scale.set( 20, 20, 20 );
+cylinder.position.set( 30, 20, 0 );
+cylinder.castShadow = true;
+cylinder.receiveShadow = true;
+scene.add( cylinder );
+
+var light = new THREE.AmbientLight( 0x202020 );
+scene.add( light );
+
+var pointLight = new THREE.PointLight( 0x983451, 1, 500 );
+pointLight.position.set( 0, 100, 0 );
+scene.add( pointLight );
+
+var spotLight1 = new THREE.SpotLight( 0xa5f4e7, 1, 500 );
+spotLight1.position.set( 0 - 100, 150, -50 );
+spotLight1.target.position.set( 0, 0, 0 );
+spotLight1.castShadow = true;
+scene.add( spotLight1 );
+
+var spotLight2 = new THREE.SpotLight( 0xa5f4e7, 2, 500 );
+spotLight2.position.set( 0 - 100, 50, -100 );
+spotLight2.target.position.set( 0, 0, 0 );
+spotLight2.castShadow = true;
+scene.add( spotLight2 );

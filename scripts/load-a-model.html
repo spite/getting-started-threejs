@@ -1,0 +1,22 @@
+var loader = new THREE.JSONLoader();
+loader.load( 'LeePerrySmith.js', function( geometry ) {
+
+    geometry.computeTangents();
+
+    var material = new THREE.MeshPhongMaterial( {
+        color: 0xf0c9c9,
+        emissive: 0x101010,
+        map: THREE.ImageUtils.loadTexture( 'Map-COL.jpg' ),
+        normalMap: THREE.ImageUtils.loadTexture( 'Infinite-Level_02_Tangent_SmoothUV.jpg' ),
+        specularMap: THREE.ImageUtils.loadTexture( 'Map-SPEC.jpg' )
+    } );
+    
+    var face = new THREE.Mesh( geometry, material );
+    face.scale.set( 10, 10, 10 );
+    face.rotation.y = Math.PI;
+    face.position.y = 10;
+    face.castShadow = true;
+    face.receiveShadow = true;
+    scene.add( face );
+
+} );
