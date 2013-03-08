@@ -2,7 +2,7 @@
 
 Add 3D content to your web pages or create fully immersive experiences with ease. Learn how to set up a scene, generate or load models and render them interactively.
 
-This is the code used for the talk for the March 2013 [Barcelona.JS](http://www.http://barcelonajs.org/) meet up.
+This is the code used for the talk for the March 2013 [Barcelona.JS](http://barcelonajs.org/) meet up.
 
 #### What is all this code then? ####
 
